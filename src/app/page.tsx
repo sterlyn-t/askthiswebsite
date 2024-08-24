@@ -4,7 +4,12 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import NavBar from "@/components/NavBar";
 import { Button } from "@nextui-org/react";
-import { BotMessageSquare, ClipboardCheck, ClipboardPaste } from "lucide-react";
+import {
+  BotMessageSquare,
+  ClipboardCheck,
+  ClipboardPaste,
+  Loader,
+} from "lucide-react";
 import { Cover } from "@/components/Cover";
 import { BackgroundBeamsWithCollision } from "@/components/BackgroundBeams";
 
@@ -14,6 +19,7 @@ export default function Home() {
   const [url, setUrl] = useState<string>("");
   const [baseUrl, setBaseUrl] = useState<string>("");
   const [pasteClicked, setPasteClicked] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -23,6 +29,7 @@ export default function Home() {
 
   const handleSubmit = async () => {
     if (url && baseUrl) {
+      setLoading(true);
       router.push(baseUrl + "/" + url);
     }
   };
@@ -75,8 +82,13 @@ export default function Home() {
                 className="border border-border bg-blue-500"
                 onClick={handleSubmit}
               >
-                <BotMessageSquare />
-                Start Chat
+                {loading ? (
+                  <Loader className="animate-spin" />
+                ) : (
+                  <BotMessageSquare />
+                )}
+                {loading && <p>Loading...</p>}
+                {!loading && <p>Start Chat</p>}
               </Button>
             </div>
           </form>
