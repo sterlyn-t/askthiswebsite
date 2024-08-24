@@ -15,7 +15,7 @@ const NavBar = () => {
       <NavbarBrand>
         {/* <AcmeLogo /> */}
         <a href="/">
-          <p className="font-bold text-inherit">AskThisWebsite</p>
+          <h1 className="font-bold">AskThisWebsite</h1>
         </a>
       </NavbarBrand>
       {/* <NavbarContent className="hidden sm:flex gap-4" justify="center">
@@ -37,7 +37,9 @@ const NavBar = () => {
       </NavbarContent> */}
       {/* <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
+          <Link href="#" className="text-sm">
+            FAQ
+          </Link>
         </NavbarItem>
         <NavbarItem></NavbarItem>
       </NavbarContent> */}

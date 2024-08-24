@@ -9,6 +9,7 @@ import {
   ClipboardCheck,
   ClipboardPaste,
   Loader,
+  Redo,
 } from "lucide-react";
 import { Cover } from "@/components/Cover";
 import { BackgroundBeamsWithCollision } from "@/components/BackgroundBeams";
@@ -49,13 +50,17 @@ export default function Home() {
   return (
     <BackgroundBeamsWithCollision>
       <NavBar />
-      <main className="z-10 flex max-h-[60vh] flex-col items-center">
+      <main className="z-10 flex lg:max-h-[60vh] flex-col items-center h-screen">
         <div className="max-w-5xl items-center text-2xl gap-8 flex flex-col">
-          <div>
+          <div className="relative">
             <h1 className="text-4xl md:text-4xl lg:text-6xl font-semibold max-w-7xl mx-auto text-center relative z-20 py-2 bg-clip-text text-transparent bg-gradient-to-b from-neutral-800 via-neutral-700 to-neutral-700 dark:from-neutral-800 dark:via-white dark:to-white">
               Use AI to chat about any webpage today. Paste any URL to <br />
               <Cover>start chatting.</Cover>
             </h1>
+            <Redo
+              className="text-zinc-600 rotate-90 absolute right-48 lg:block hidden"
+              size="56"
+            />
           </div>
           <form
             onSubmit={handleSubmit}
