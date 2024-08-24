@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Providers from "@/components/Providers";
+import { BackgroundBeamsWithCollision } from "@/components/BackgroundBeams";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,9 @@ export default function RootLayout({
       <body className={cn(inter.className, "min-h-screen antialiased")}>
         <Providers>
           <main className="h-screen dark text-foreground bg-background">
-            {children}
+            <BackgroundBeamsWithCollision>
+              {children}
+            </BackgroundBeamsWithCollision>
           </main>
         </Providers>
       </body>

@@ -11,7 +11,7 @@ import React from "react";
 
 const NavBar = () => {
   return (
-    <Navbar isBordered className="left-0 top-0">
+    <Navbar isBordered className="absolute left-0 top-0 bg-zinc-900">
       <NavbarBrand>
         {/* <AcmeLogo /> */}
         <a href="/">

@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import NavBar from "@/components/NavBar";
 import { Button } from "@nextui-org/react";
 import { BotMessageSquare, ClipboardCheck, ClipboardPaste } from "lucide-react";
+import { BackgroundBeamsWithCollision } from "@/components/BackgroundBeams";
+import { Cover } from "@/components/Cover";
 
 export default function Home() {
   const router = useRouter();
@@ -40,13 +42,13 @@ export default function Home() {
   return (
     <>
       <NavBar />
-      <main className="flex min-h-[80vh] flex-col items-center justify-between p-8">
-        <div className="max-w-5xl items-center font-mono text-2xl font-bold gap-16 flex flex-col">
+      <main className="z-10 flex max-h-[60vh] flex-col items-center">
+        <div className="max-w-5xl items-center text-2xl font-bold gap-8 flex flex-col">
           <div>
-            <h2>
-              Use AI to chat with any webpage today. Paste in your desired URL
-              and click Start Chatting.
-            </h2>
+            <h1 className="text-4xl md:text-4xl lg:text-6xl font-semibold max-w-7xl mx-auto text-center relative z-20 py-2 bg-clip-text text-transparent bg-gradient-to-b from-neutral-800 via-neutral-700 to-neutral-700 dark:from-neutral-800 dark:via-white dark:to-white">
+              Use AI to chat with any webpage today. Paste any URL to <br />
+              <Cover>start chatting</Cover>
+            </h1>
           </div>
           <form
             onSubmit={handleSubmit}
@@ -74,7 +76,7 @@ export default function Home() {
                 onClick={handleSubmit}
               >
                 <BotMessageSquare />
-                Start Chatting
+                Start Chat
               </Button>
             </div>
           </form>
