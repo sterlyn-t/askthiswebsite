@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { Cover } from "@/components/Cover";
 import { BackgroundBeamsWithCollision } from "@/components/BackgroundBeams";
+import { PlaceholdersAndVanishInput } from "@/components/PlaceholdersVanishInput";
 
 export default function Home() {
   const router = useRouter();
@@ -58,20 +59,20 @@ export default function Home() {
               <Cover>start chatting.</Cover>
             </h1>
             <Redo
-              className="text-zinc-600 rotate-90 absolute right-48 lg:block hidden"
-              size="56"
+              className="text-zinc-600 rotate-90 absolute right-44 lg:block hidden"
+              size="48"
             />
           </div>
-          <form
-            onSubmit={handleSubmit}
-            className="gap-8 flex justify-center items-center flex-col w-full"
-          >
-            <input
-              autoFocus
-              className="text-white rounded-md w-full md:w-3/4 lg:w-1/2 h-10 text-lg p-2"
-              type="text"
-              value={url}
+          <div className="gap-8 flex justify-center items-center flex-col w-full">
+            <PlaceholdersAndVanishInput
               onChange={(e) => setUrl(e.target.value)}
+              value={url}
+              onSubmit={handleSubmit}
+              placeholders={[
+                "https://en.wikipedia.org/wiki/Inter_Miami_CF",
+                "https://edition.cnn.com/markets",
+                "https://medium.com/kredibel/next-js-pragmatis-streaming-36d7d600f7f4",
+              ]}
             />
             <div className="flex gap-4">
               <Button
@@ -96,7 +97,7 @@ export default function Home() {
                 {!loading && <p>Start Chat</p>}
               </Button>
             </div>
-          </form>
+          </div>
         </div>
 
         <div className="fixed bottom-0 left-0 flex h-32 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none"></div>
