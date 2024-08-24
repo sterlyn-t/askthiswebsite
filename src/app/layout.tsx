@@ -22,9 +22,7 @@ export default function RootLayout({
       <body className={cn(inter.className, "min-h-screen antialiased")}>
         <Providers>
           <main className="h-screen dark text-foreground bg-background">
-            <BackgroundBeamsWithCollision>
-              {children}
-            </BackgroundBeamsWithCollision>
+            {children}
           </main>
         </Providers>
       </body>
